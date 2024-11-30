@@ -2,7 +2,7 @@
 #Requires -RunAsAdministrator
 
 # Create logs directory if it doesn't exist
-$logPath = "$env:USERPROFILE\choco-logs"
+$logPath = "$env:USERPROFILE\ChocoAutomations\ChocoLogs"
 if (-not (Test-Path $logPath)) {
     New-Item -ItemType Directory -Path $logPath | Out-Null
 }

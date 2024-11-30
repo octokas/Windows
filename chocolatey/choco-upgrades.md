@@ -14,11 +14,11 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 ### How to Use These Scripts:
 #### First Time Setup:
 1. Save both files to your computer, in your user folder _(if you choose to save in a different folder, you'll have to update both scripts with their paths)_
-2. Run the [`setup-choco-task.ps1`](setup-choco-task.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
+2. Run the [`setup-choco-task.ps1`](drafts/SetupChocoUpgrader.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
 3. This creates an [automatic task in Windows](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-a-task-on-a-schedule?redirectedfrom=MSDN) that can run the main script
 
 #### Regular Use:
-1. Double-click the [`choco-auto-upgrade.ps1`](choco-auto-upgrade.ps1) script
+1. Double-click the [`choco-auto-upgrade.ps1`](drafts/ChocoAutoUpgrader.ps1) script
 2. Or find **"ChocoAutoUpgrade"** in Task Scheduler to run it
 3. You'll see a [menu with options](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-host?view=powershell-7.4)
 4. Pick `option 1` to update just [Chocolatey](https://chocolatey.org/)
@@ -52,7 +52,7 @@ _To run the script manually, `right-click` it and select **"Run with PowerShell 
 - These scripts are designed to be run with administrator privileges
 - The scheduled task will run the script with the credentials of the user that created it, not the user that is logged in when the task runs
 - If you want to run the script as a different user, you can change the **"Run as user"** option in the Task Scheduler
-- If you need additional help, you can run the scripts I've made for you in the [`with-annotations` directory](../chocolatey/with-annotations/) in the Powershell Editor, VS Code, or any other IDE supporting powershell scripts
+- If you need additional help, you can run the scripts I've made for you in the [`with-annotations` directory](drafts/with-annotations) in the Powershell Editor, VS Code, or any other IDE supporting powershell scripts
 - You can find more information on the [Chocolatey](https://chocolatey.org/) website and the [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) documentation
 
 ---
