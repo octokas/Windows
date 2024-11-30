@@ -25,13 +25,17 @@ if (-not (Test-Path $logPath)) {
 
 # Download required scripts
 $files = @(
-    @{
-        Name = "ChocoAutoUpgrader.ps1"
-        Url = "https://raw.githubusercontent.com/yourusername/repo/main/chocolatey/ChocoAutoUpgrader.ps1"
+  @{
+        Name = "UpdateChocoScripts.ps1"
+        Url = "https://raw.githubusercontent.com/octokas/Windows/refs/heads/trunk/chocolatey/UpdateChocoScripts.ps1"
     },
     @{
-        Name = "Launch-ChocoUpgrader.ps1"
-        Url = "https://raw.githubusercontent.com/yourusername/repo/main/chocolatey/Launch-ChocoUpgrader.ps1"
+        Name = "ChocoAutoUpgrader.ps1"
+        Url = "https://raw.githubusercontent.com/octokas/Windows/refs/heads/trunk/chocolatey/ChocoAutoUpgrader.ps1"
+    },
+    @{
+        Name = "LaunchChocoUpgrader.ps1"
+        Url = "https://raw.githubusercontent.com/octokas/Windows/refs/heads/trunk/chocolatey/LaunchChocoUpgrader.ps1"
     }
 )
 
