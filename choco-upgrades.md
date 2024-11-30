@@ -5,7 +5,7 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 ### How to Use These Scripts:
 #### First Time Setup:
 1. Save both files to your computer _(in your user folder)_
-2. Run the [`setup-choco-task.ps1`](setup-choco-task.ps1) script once as administrator
+2. Run the [`setup-choco-task.ps1`](chocolatey/setup-choco-task.ps1) script once as administrator
 3. This creates an [automatic task in Windows](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-a-task-on-a-schedule?redirectedfrom=MSDN) that can run the main script
 
 #### Regular Use:
