@@ -3,8 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-## Basic
+## Basic 
 *.DS_Store
+*.suo
+*.user
 
 # User-specific files
 *.rsuser
@@ -399,12 +401,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-
-### TEMPORARY REMOVE
-!.git/hooks/post-merge
-!.history/
-!*.git*
-!*.history*
-!.git*
-!.history*
