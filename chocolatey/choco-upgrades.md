@@ -2,6 +2,12 @@
 ---
 _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts in [PowerShell](https://learn.microsoft.com/en-us/powershell/), on [Windows](https://www.microsoft.com/en-us/windows)._
 
+### Pre-Requisites
+- `choco` or chocolatey
+- `git`
+- `gh` or GitHub CLI
+- `pwshell` or PowerShell
+
 ### How to Use These Scripts:
 #### First Time Setup:
 1. Save both files to your computer _(in your user folder)_
