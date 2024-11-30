@@ -14,11 +14,11 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 ### How to Use These Scripts:
 #### First Time Setup:
 1. Save both files to your computer, in your user folder _(if you choose to save in a different folder, you'll have to update both scripts with their paths)_
-2. Run the [`setup-choco-task.ps1`](drafts/SetupChocoUpgrader.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
+2. Run the [`SetupChocoUpgrader.ps1`](SetupChocoUpgrader.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
 3. This creates an [automatic task in Windows](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-a-task-on-a-schedule?redirectedfrom=MSDN) that can run the main script
 
 #### Regular Use:
-1. Double-click the [`choco-auto-upgrade.ps1`](drafts/ChocoAutoUpgrader.ps1) script
+1. Double-click the [`ChocoAutoUpgrader.ps1`](ChocoAutoUpgrader.ps1) script
 2. Or find **"ChocoAutoUpgrade"** in Task Scheduler to run it
 3. You'll see a [menu with options](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-host?view=powershell-7.4)
 4. Pick `option 1` to update just [Chocolatey](https://chocolatey.org/)

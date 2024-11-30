@@ -7,7 +7,7 @@ if (-not (Test-Path $logPath)) {
     New-Item -ItemType Directory -Path $logPath | Out-Null
 }
 
-$logFile = Join-Path $logPath "choco-upgrade-log.md"
+$logFile = Join-Path $logPath "ChocoUpgradeLog.md"
 $date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
 # Function to write to both console and log file
