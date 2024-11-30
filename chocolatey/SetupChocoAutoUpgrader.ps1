@@ -8,20 +8,20 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # Set window title and colors for installation
 $host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader Setup"
 $colors = @{
-    Background = "#2D2A2E"    # Dark purple-brown background
-    Foreground = "#FCFCFA"    # Light text
-    Purple     = "#AB9DF2"    # Purple
-    Yellow     = "#FFD866"    # Yellow
-    Red        = "#FF6188"    # Red
-    Green      = "#A9DC76"    # Green
-    Blue       = "#78DCE8"    # Cyan
+    Background = "Black"      # Dark background
+    Foreground = "White"      # Light text
+    Purple     = "Magenta"    # Purple (closest to Monokai purple)
+    Yellow     = "Yellow"     # Yellow
+    Red        = "Red"        # Red
+    Green      = "Green"      # Green
+    Blue       = "Cyan"       # Cyan (closest to Monokai blue)
 }
 
 # Function to write styled messages
 function Write-Styled {
     param(
         [string]$Message,
-        [string]$Color = $colors.Foreground
+        [System.ConsoleColor]$Color = $colors.Foreground
     )
     Write-Host $Message -ForegroundColor $Color
 }

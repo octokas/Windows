@@ -4,18 +4,18 @@
 # Set window title and size
 $host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader"
 
-# Monokai Pro-inspired colors
+# Monokai Pro-inspired colors using PowerShell console colors
 $colors = @{
-    Background = "#2D2A2E"    # Dark purple-brown background
-    Foreground = "#FCFCFA"    # Light text
-    Black      = "#403E41"    # Dark gray
-    Blue       = "#78DCE8"    # Cyan
-    Cyan       = "#A9DC76"    # Light green
-    Green      = "#A9DC76"    # Green
-    Purple     = "#AB9DF2"    # Purple
-    Red        = "#FF6188"    # Red
-    White      = "#FCFCFA"    # White
-    Yellow     = "#FFD866"    # Yellow
+    Background = "Black"      # Dark background
+    Foreground = "White"      # Light text
+    Black      = "DarkGray"   # Dark gray
+    Blue       = "Cyan"       # Cyan
+    Cyan       = "Green"      # Light green
+    Green      = "Green"      # Green
+    Purple     = "Magenta"    # Purple
+    Red        = "Red"        # Red
+    White      = "White"      # White
+    Yellow     = "Yellow"     # Yellow
 }
 
 # Function to set console colors
@@ -40,8 +40,8 @@ function Set-ConsoleStyle {
     $console.WindowSize = $window
 
     # Set colors
-    $console.BackgroundColor = $colors.Background
-    $console.ForegroundColor = $colors.Foreground
+    $console.BackgroundColor = [System.ConsoleColor]::Black
+    $console.ForegroundColor = [System.ConsoleColor]::White
 
     # Clear the screen to apply new background
     Clear-Host
