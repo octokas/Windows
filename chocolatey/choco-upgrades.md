@@ -13,8 +13,8 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 
 ### How to Use These Scripts:
 #### First Time Setup:
-1. Save both files to your computer _(in your user folder)_
-2. Run the [`setup-choco-task.ps1`](setup-choco-task.ps1) script once as administrator
+1. Save both files to your computer, in your user folder _(if you choose to save in a different folder, you'll have to update both scripts with their paths)_
+2. Run the [`setup-choco-task.ps1`](setup-choco-task.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
 3. This creates an [automatic task in Windows](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-a-task-on-a-schedule?redirectedfrom=MSDN) that can run the main script
 
 #### Regular Use:
