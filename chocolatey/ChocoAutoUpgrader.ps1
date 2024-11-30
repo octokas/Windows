@@ -78,7 +78,7 @@ function Show-Menu {
     Write-Host "║ 3. View Today's Logs           ║" -ForegroundColor $colors.Yellow
     Write-Host "║ 4. Troubleshoot Review         ║" -ForegroundColor $colors.Yellow
     Write-Host "║ 5. Write to Log File           ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 6. Support Developer ☕        ║" -ForegroundColor $colors.Yellow
+    Write-Host "║ 6. Support Developer        ║" -ForegroundColor $colors.Yellow
     Write-Host "║ Q. Quit                        ║" -ForegroundColor $colors.Red
     Write-Host "╚════════════════════════════════╝" -ForegroundColor $colors.Purple
 }
@@ -153,7 +153,7 @@ do {
             Write-Log "`n=== Chocolatey Upgrade Log - $date ===`n"
         }
         '6' {
-            Write-Host "`nSend at least $15 USD via Apple Cash to: ☕" -ForegroundColor $colors.Yellow
+            Write-Host "`nSend at least 15 USD via Apple Cash to:" -ForegroundColor $colors.Yellow
             Write-Host "awestomates@proton.me" -ForegroundColor $colors.Yellow
             Write-Host "Thank you for supporting my caffeine addiction!`n" -ForegroundColor $colors.Yellow
 
