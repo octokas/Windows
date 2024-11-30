@@ -1,11 +1,17 @@
 # Find the .git directory by walking up the directory tree
 function Find-GitRoot {
-    $path = Get-Location
-    while ($path -ne $null) {
-        if (Test-Path (Join-Path $path ".git")) {
-            return Join-Path $path ".git"
+    $currentPath = Get-Location
+    while ($currentPath -ne "") {
+        $gitPath = Join-Path $currentPath ".git"
+        if (Test-Path $gitPath) {
+            return $gitPath
         }
-        $path = Split-Path $path -Parent
+        $parentPath = Split-Path $currentPath -Parent
+        if ($parentPath -eq $currentPath) {
+            # We've reached the root
+            break
+        }
+        $currentPath = $parentPath
     }
     return $null
 }
