@@ -6,3 +6,5 @@ $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoi
 
 Register-ScheduledTask -TaskName "ChocoAutoUpgrade" -Action $action -Trigger $trigger -Principal $principal -Settings $settings
 
+## To Delete the scheduled task, run the following command:
+## Unregister-ScheduledTask -TaskName "ChocoAutoUpgrade" -Confirm:$false

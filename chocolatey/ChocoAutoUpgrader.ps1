@@ -37,7 +37,7 @@ do {
         '1' {
             Write-Host "Updating Chocolatey Only..."
             try {
-                choco upgrade chocolatey -y --verbose
+                choco upgrade chocolatey -A --verbose
             }
             catch {
                 Write-Host "Error occurred: $_" -ForegroundColor Red
