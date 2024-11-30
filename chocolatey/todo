@@ -1,0 +1,6 @@
+- Add a script to update the Chocolatey scripts
+- Add a script to launch the Chocolatey Upgrader
+- Add a script to install the Chocolatey Upgrader
+- Add a script to update the Chocolatey scripts _(forcefully and with overwrite support)_
+- Update the Chocolatey Upgrader to use the new scripts
+- Update profile to make look more monokai-pro-like plus chocolatey brown background theme
