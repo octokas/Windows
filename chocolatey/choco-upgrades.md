@@ -13,9 +13,16 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 
 ### How to Use These Scripts:
 #### First Time Setup:
-1. Save both files to your computer, in your user folder _(if you choose to save in a different folder, you'll have to update both scripts with their paths)_
-2. Run the [`SetupChocoUpgrader.ps1`](SetupChocoUpgrader.ps1) script once as administrator _(i.e. `& ./setup-choco-task.ps1`)_
-3. This creates an [automatic task in Windows](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-a-task-on-a-schedule?redirectedfrom=MSDN) that can run the main script
+1. From this directory, run a `git pull` to get the latest version
+2. Then run [`Setup-GitHook.ps1`](Setup-GitHook.ps1) to set up the post-merge hook
+3. Copy the [Setup](SetupChocoAutoUpgrader.ps1), [`ChocoAutoUpgrader.ps1`](ChocoAutoUpgrader.ps1), and [Launch](Launch-ChocoUpgrader.ps1) scripts to your user folder _(usually `C:\Users\YourName\ChocoAutomations`)_
+4. Run [`SetupChocoAutoUpgrader.ps1`](SetupChocoAutoUpgrader.ps1) to install the scheduled task
+5. Double-click the [`Launch-ChocoUpgrader.ps1`](Launch-ChocoUpgrader.ps1) script to test it
+6. You should see a shortcut to the [`ChocoAutoUpgrader.ps1`](ChocoAutoUpgrader.ps1) script on your desktop
+7. Double-click the shortcut to test it
+8. You should see a menu with options
+9. Pick `option 6` to send me some caffeine money
+10. Pick `Q` to quit
 
 #### Regular Use:
 1. Double-click the [`ChocoAutoUpgrader.ps1`](ChocoAutoUpgrader.ps1) script
