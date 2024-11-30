@@ -6,7 +6,7 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 }
 
 # Set window title and colors for installation
-$host.UI.RawUI.WindowTitle = "☕ Chocolatey Auto Upgrader Setup"
+$host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader Setup"
 $colors = @{
     Background = "#2D2A2E"    # Dark purple-brown background
     Foreground = "#FCFCFA"    # Light text
@@ -100,7 +100,7 @@ $shortcut.IconLocation = "C:\ProgramData\chocolatey\choco.exe,0"
 $shortcut.Save()
 
 Write-Styled "`n╔════════════════════════════════════════╗" -Color $colors.Purple
-Write-Styled "║        Installation Complete! 🎉        ║" -Color $colors.Purple
+Write-Styled "║        Installation Complete!         ║" -Color $colors.Purple
 Write-Styled "╚════════════════════════════════════════╝" -Color $colors.Purple
 
 Write-Styled "`nInstallation Details:" -Color $colors.Yellow

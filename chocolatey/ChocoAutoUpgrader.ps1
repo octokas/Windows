@@ -2,7 +2,7 @@
 #Requires -RunAsAdministrator
 
 # Set window title and size
-$host.UI.RawUI.WindowTitle = "☕ Chocolatey Auto Upgrader"
+$host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader"
 
 # Monokai Pro-inspired colors
 $colors = @{
