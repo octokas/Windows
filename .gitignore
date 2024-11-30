@@ -402,9 +402,12 @@ FodyWeavers.xsd
 
 
 ### TEMPORARY REMOVE
-!.git/hooks/post-merge
-!.history/
 !*.git*
-!*.history*
 !.git*
+!.git/hooks/
+!.git/hooks/post-merge
+!.git/hooks/**
+!*.history*
 !.history*
+!.history/
+!.history/**
