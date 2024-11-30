@@ -35,31 +35,25 @@ do {
 
     switch ($selection) {
         '1' {
-            Write-Log "### Updating Chocolatey Only`n"
-            Write-Log "``````"
+            Write-Host "Updating Chocolatey Only..."
             try {
-                $output = choco upgrade chocolatey -y --verbose | Out-String
-                Write-Log $output
+                choco upgrade chocolatey -y --verbose
             }
             catch {
-                Write-Log "Error occurred: $_"
+                Write-Host "Error occurred: $_" -ForegroundColor Red
             }
-            Write-Log "``````n"
         }
         '2' {
-            Write-Log "### Updating All Packages`n"
-            Write-Log "``````"
+            Write-Host "Updating All Packages..."
             try {
-                $output = choco upgrade all -y --verbose | Out-String
-                Write-Log $output
+                choco upgrade all -y --verbose
             }
             catch {
-                Write-Log "Error occurred: $_"
+                Write-Host "Error occurred: $_" -ForegroundColor Red
             }
-            Write-Log "``````n"
         }
         'Q' {
-            Write-Log "### Session Ended`n"
+            Write-Host "Session Ended."
             return
         }
         default {
