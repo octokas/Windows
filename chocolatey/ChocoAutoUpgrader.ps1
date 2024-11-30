@@ -70,17 +70,15 @@ function Write-Log {
 Add-Content -Path $logFile -Value "`n=== Chocolatey Upgrade Log - $date ===`n"
 
 function Show-Menu {
-    Write-Host "`n╔════════════════════════════════╗" -ForegroundColor $colors.Purple
-    Write-Host "║    Chocolatey Upgrade Menu     ║" -ForegroundColor $colors.Purple
-    Write-Host "╠════════════════════════════════╣" -ForegroundColor $colors.Purple
-    Write-Host "║ 1. Update Chocolatey Only      ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 2. Update All Packages         ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 3. View Today's Logs           ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 4. Troubleshoot Review         ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 5. Write to Log File           ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ 6. Support Developer        ║" -ForegroundColor $colors.Yellow
-    Write-Host "║ Q. Quit                        ║" -ForegroundColor $colors.Red
-    Write-Host "╚════════════════════════════════╝" -ForegroundColor $colors.Purple
+    Write-Host "`n=== Chocolatey Upgrade Menu ===" -ForegroundColor Magenta
+    Write-Host "1. Update Chocolatey Only" -ForegroundColor Yellow
+    Write-Host "2. Update All Packages" -ForegroundColor Yellow
+    Write-Host "3. View Today's Logs" -ForegroundColor Yellow
+    Write-Host "4. Troubleshoot Review" -ForegroundColor Yellow
+    Write-Host "5. Write to Log File" -ForegroundColor Yellow
+    Write-Host "6. Support Developer" -ForegroundColor Yellow
+    Write-Host "Q. Quit" -ForegroundColor Red
+    Write-Host "===========================" -ForegroundColor Magenta
 }
 
 # Main loop
@@ -89,45 +87,26 @@ do {
     $selection = Read-Host "Please make a selection"
 
     switch ($selection) {
-        '1' {
-            Write-Log "Updating Chocolatey Only..."
+        "1" {
+            Write-Host "Updating Chocolatey Only..." -ForegroundColor Cyan
             try {
-                $output = choco upgrade chocolatey -y --verbose | Out-String
-                Write-Log $output
+                choco upgrade chocolatey -y --verbose
             }
             catch {
-                Write-Log "Error occurred: $_" -ForegroundColor $colors.Red
+                Write-Host "Error occurred: $_" -ForegroundColor Red
             }
-            Write-Log "`n----------------------------------------`n"
         }
-        '2' {
-            Write-Log "Updating All Packages..."
+        "2" {
+            Write-Host "Updating All Packages..." -ForegroundColor Cyan
             try {
-                $output = choco upgrade all -y --verbose | Out-String
-                Write-Log $output
+                choco upgrade all -y --verbose
             }
             catch {
-                Write-Log "Error occurred: $_" -ForegroundColor $colors.Red
+                Write-Host "Error occurred: $_" -ForegroundColor Red
             }
-            Write-Log "`n----------------------------------------`n"
         }
-        '3' {
-            Write-Log "Updating Chocolatey and All Packages..."
-            try {
-                $output = choco upgrade chocolatey -y --verbose | Out-String
-                Write-Log $output
-                $output = choco upgrade all -y --verbose | Out-String
-                Write-Log $output
-            }
-            catch {
-                Write-Log "Error occurred: $_" -ForegroundColor $colors.Red
-            }
-            Write-Log "`n----------------------------------------`n"
-        }
-        '4' {
-            Write-Log "Troubleshoot Review with Today's Chocolatey Logs..." -ForegroundColor $colors.Blue
-            Write-Host "Opening $logFile..."
-            Start-Process $logFile
+        "3" {
+            Write-Host "Viewing Today's Chocolatey Logs..." -ForegroundColor Cyan
             try {
                 $today = (Get-Date).Date
                 Get-Content "C:\ProgramData\chocolatey\logs\chocolatey.log" | Where-Object {
@@ -142,30 +121,33 @@ do {
                 } | Format-Table -Wrap
             }
             catch {
-                Write-Log "Error reading log file: $_" -ForegroundColor $colors.Red
+                Write-Host "Error reading log file: $_" -ForegroundColor Red
             }
             Write-Host "Press any key to continue..."
-            $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+            $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
         }
-        '5' {
-            Write-Log "Writing to Your Chocolatey Auto Upgrade Log File..." -ForegroundColor $colors.Blue
+        "4" {
+            Write-Host "Opening Chocolatey log file..." -ForegroundColor Cyan
+            Start-Process "C:\ProgramData\chocolatey\logs\chocolatey.log"
+        }
+        "5" {
+            Write-Host "Writing to log file..." -ForegroundColor Cyan
+            $date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
             Add-Content -Path $logFile -Value "`n=== Chocolatey Upgrade Log - $date ===`n"
-            Write-Log "`n=== Chocolatey Upgrade Log - $date ===`n"
         }
-        '6' {
+        "6" {
             Write-Host "`nSend at least 15 USD via Apple Cash to:" -ForegroundColor Cyan
             Write-Host "awestomates@proton.me" -ForegroundColor Yellow
             Write-Host "Thank you for supporting my caffeine addiction!`n" -ForegroundColor Cyan
-
             Write-Host "Press any key to continue..."
-            $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+            $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
         }
-        'Q' {
-            Write-Host "Session Ended."
+        "Q" {
+            Write-Host "Session Ended." -ForegroundColor Green
             return
         }
         default {
-            Write-Host "Invalid selection. Please try again." -ForegroundColor $colors.Red
+            Write-Host "Invalid selection. Please try again." -ForegroundColor Red
         }
     }
 } while ($true)

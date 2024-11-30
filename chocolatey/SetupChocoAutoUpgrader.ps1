@@ -5,41 +5,20 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     exit
 }
 
-# Set window title and colors for installation
+# Set window title
 $host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader Setup"
-$colors = @{
-    Background = "Black"      # Dark background
-    Foreground = "White"      # Light text
-    Purple     = "Magenta"    # Purple (closest to Monokai purple)
-    Yellow     = "Yellow"     # Yellow
-    Red        = "Red"        # Red
-    Green      = "Green"      # Green
-    Blue       = "Cyan"       # Cyan (closest to Monokai blue)
-}
-
-# Function to write styled messages
-function Write-Styled {
-    param(
-        [string]$Message,
-        [System.ConsoleColor]$Color = $colors.Foreground
-    )
-    Write-Host $Message -ForegroundColor $Color
-}
 
 # Create installation directory
 $installPath = "$env:USERPROFILE\ChocoAutomations"
-Write-Styled "`n╔════════════════════════════════════════╗" -Color $colors.Purple
-Write-Styled "║     Chocolatey Auto Upgrader Setup     ║" -Color $colors.Purple
-Write-Styled "╚════════════════════════════════════════╝`n" -Color $colors.Purple
-
-Write-Styled "Creating installation directory..." -Color $colors.Blue
+Write-Host "`n=== Chocolatey Auto Upgrader Setup ===" -ForegroundColor Magenta
+Write-Host "Creating installation directory..." -ForegroundColor Cyan
 if (-not (Test-Path $installPath)) {
     New-Item -ItemType Directory -Path $installPath | Out-Null
 }
 
 # Create logs directory
 $logPath = Join-Path $installPath "ChocoLogs"
-Write-Styled "Creating logs directory..." -Color $colors.Blue
+Write-Host "Creating logs directory..." -ForegroundColor Cyan
 if (-not (Test-Path $logPath)) {
     New-Item -ItemType Directory -Path $logPath | Out-Null
 }
@@ -56,41 +35,41 @@ $files = @(
     }
 )
 
-Write-Styled "`nDownloading required scripts..." -Color $colors.Blue
+Write-Host "`nDownloading required scripts..." -ForegroundColor Cyan
 foreach ($file in $files) {
     $destination = Join-Path $installPath $file.Name
     try {
         Invoke-WebRequest -Uri $file.Url -OutFile $destination
-        Write-Styled "Downloaded $($file.Name)" -Color $colors.Green
+        Write-Host "Downloaded $($file.Name)" -ForegroundColor Green
     }
     catch {
-        Write-Styled "Failed to download $($file.Name): $_" -Color $colors.Red
+        Write-Host "Failed to download $($file.Name): $_" -ForegroundColor Red
         exit 1
     }
 }
 
 # Install Chocolatey if not already installed
-Write-Styled "`nChecking Chocolatey installation..." -Color $colors.Blue
+Write-Host "`nChecking Chocolatey installation..." -ForegroundColor Cyan
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
-    Write-Styled "Installing Chocolatey..." -Color $colors.Yellow
+    Write-Host "Installing Chocolatey..." -ForegroundColor Yellow
     try {
         Set-ExecutionPolicy Bypass -Scope Process -Force
         [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-        Write-Styled "Chocolatey installed successfully!" -Color $colors.Green
+        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
+        Write-Host "Chocolatey installed successfully!" -ForegroundColor Green
     }
     catch {
-        Write-Styled "Failed to install Chocolatey: $_" -Color $colors.Red
+        Write-Host "Failed to install Chocolatey: $_" -ForegroundColor Red
         exit 1
     }
 }
 else {
-    Write-Styled "Chocolatey is already installed" -Color $colors.Green
+    Write-Host "Chocolatey is already installed" -ForegroundColor Green
 }
 
 # Create desktop shortcut
 $shortcutPath = [System.IO.Path]::Combine([Environment]::GetFolderPath("Desktop"), "Chocolatey Upgrader.lnk")
-Write-Styled "`nCreating desktop shortcut..." -Color $colors.Blue
+Write-Host "`nCreating desktop shortcut..." -ForegroundColor Cyan
 $WScriptShell = New-Object -ComObject WScript.Shell
 $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = "powershell.exe"
@@ -99,19 +78,17 @@ $shortcut.WorkingDirectory = $installPath
 $shortcut.IconLocation = "C:\ProgramData\chocolatey\choco.exe,0"
 $shortcut.Save()
 
-Write-Styled "`n╔════════════════════════════════════════╗" -Color $colors.Purple
-Write-Styled "║        Installation Complete!         ║" -Color $colors.Purple
-Write-Styled "╚════════════════════════════════════════╝" -Color $colors.Purple
+Write-Host "`n=== Installation Complete! ===" -ForegroundColor Magenta
 
-Write-Styled "`nInstallation Details:" -Color $colors.Yellow
-Write-Styled "Installation Path: $installPath" -Color $colors.Foreground
-Write-Styled "Logs Directory: $logPath" -Color $colors.Foreground
-Write-Styled "Desktop Shortcut Created: $shortcutPath" -Color $colors.Foreground
+Write-Host "`nInstallation Details:" -ForegroundColor Yellow
+Write-Host "Installation Path: $installPath" -ForegroundColor White
+Write-Host "Logs Directory: $logPath" -ForegroundColor White
+Write-Host "Desktop Shortcut Created: $shortcutPath" -ForegroundColor White
 
-Write-Styled "`nTo get started:" -Color $colors.Yellow
-Write-Styled "1. Double-click the 'Chocolatey Upgrader' shortcut on your desktop" -Color $colors.Foreground
-Write-Styled "2. The script will request admin privileges automatically" -Color $colors.Foreground
-Write-Styled "3. Use the menu to manage your Chocolatey packages" -Color $colors.Foreground
+Write-Host "`nTo get started:" -ForegroundColor Yellow
+Write-Host "1. Double-click the 'Chocolatey Upgrader' shortcut on your desktop" -ForegroundColor White
+Write-Host "2. The script will request admin privileges automatically" -ForegroundColor White
+Write-Host "3. Use the menu to manage your Chocolatey packages" -ForegroundColor White
 
-Write-Styled "`nPress any key to exit..." -Color $colors.Blue
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+Write-Host "`nPress any key to exit..." -ForegroundColor Cyan
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
