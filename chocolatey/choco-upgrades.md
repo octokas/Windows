@@ -25,23 +25,11 @@ _Simple guide to using the [Chocolatey](https://chocolatey.org/) upgrade scripts
 10. Pick `Q` to quit
 
 #### Regular Use:
-1. Double-click the [`ChocoAutoUpgrader.ps1`](ChocoAutoUpgrader.ps1) script
-2. Or find **"ChocoAutoUpgrade"** in Task Scheduler to run it
-3. You'll see a [menu with options](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-host?view=powershell-7.4)
-4. Pick `option 1` to update just [Chocolatey](https://chocolatey.org/)
-5. Pick `option 2` to [update all your installed packages](https://docs.chocolatey.org/en-us/choco/commands/upgrade)
-6. Pick `Q` to quit
+> coming soon...
 
 #### Finding the Logs:
-1. Go to your user folder _(usually `C:\Users\YourName`)_
-2. Look for the **"choco-logs"** folder
-3. Open **"choco-upgrade-log.md"** to see what happened
-4. The log file uses markdown formatting, so it looks best when viewed in a markdown reader
+> coming soon...
 
-#### The log file will be formatted in markdown with:
-- Date/time headers for each session
-- Code blocks for the output
-- Error messages if any occur
 
 #### Key features:
 - Requires **administrator privileges** automatically
@@ -59,7 +47,6 @@ _To run the script manually, `right-click` it and select **"Run with PowerShell 
 - These scripts are designed to be run with administrator privileges
 - The scheduled task will run the script with the credentials of the user that created it, not the user that is logged in when the task runs
 - If you want to run the script as a different user, you can change the **"Run as user"** option in the Task Scheduler
-- If you need additional help, you can run the scripts I've made for you in the [`with-annotations` directory](drafts/with-annotations) in the Powershell Editor, VS Code, or any other IDE supporting powershell scripts
 - You can find more information on the [Chocolatey](https://chocolatey.org/) website and the [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) documentation
 
 ---
