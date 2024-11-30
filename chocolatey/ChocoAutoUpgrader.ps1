@@ -48,7 +48,7 @@ do {
         }
         '2' {
             Write-Log "### Updating All Packages`n"
-            Write-Log "```"
+            Write-Log "``````"
             try {
                 $output = choco upgrade all -y --verbose | Out-String
                 Write-Log $output
@@ -56,7 +56,7 @@ do {
             catch {
                 Write-Log "Error occurred: $_"
             }
-            Write-Log "````n"
+            Write-Log "``````n"
         }
         'Q' {
             Write-Log "### Session Ended`n"
