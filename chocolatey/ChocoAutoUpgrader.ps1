@@ -36,7 +36,7 @@ do {
     switch ($selection) {
         '1' {
             Write-Log "### Updating Chocolatey Only`n"
-            Write-Log "```"
+            Write-Log "``````"
             try {
                 $output = choco upgrade chocolatey -y --verbose | Out-String
                 Write-Log $output
@@ -44,7 +44,7 @@ do {
             catch {
                 Write-Log "Error occurred: $_"
             }
-            Write-Log "````n"
+            Write-Log "``````n"
         }
         '2' {
             Write-Log "### Updating All Packages`n"
