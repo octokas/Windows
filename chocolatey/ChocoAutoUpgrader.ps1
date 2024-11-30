@@ -153,9 +153,9 @@ do {
             Write-Log "`n=== Chocolatey Upgrade Log - $date ===`n"
         }
         '6' {
-            Write-Host "`nSend at least 15 USD via Apple Cash to:" -ForegroundColor $colors.Yellow
-            Write-Host "awestomates@proton.me" -ForegroundColor $colors.Yellow
-            Write-Host "Thank you for supporting my caffeine addiction!`n" -ForegroundColor $colors.Yellow
+            Write-Host "`nSend at least 15 USD via Apple Cash to:" -ForegroundColor Cyan
+            Write-Host "awestomates@proton.me" -ForegroundColor Yellow
+            Write-Host "Thank you for supporting my caffeine addiction!`n" -ForegroundColor Cyan
 
             Write-Host "Press any key to continue..."
             $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
