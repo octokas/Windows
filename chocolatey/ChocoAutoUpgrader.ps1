@@ -6,7 +6,7 @@ $host.UI.RawUI.WindowTitle = "Chocolatey Auto Upgrader"
 
 # Monokai Pro-inspired colors using PowerShell console colors
 $colors = @{
-    Background = "Black"      # Dark background
+    Background = "Brown"      # Dark background
     Foreground = "White"      # Light text
     Black      = "DarkGray"   # Dark gray
     Blue       = "Cyan"       # Cyan
