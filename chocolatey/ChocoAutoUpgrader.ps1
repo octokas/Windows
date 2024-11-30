@@ -136,7 +136,7 @@ do {
             Add-Content -Path $logFile -Value "`n=== Chocolatey Upgrade Log - $date ===`n"
         }
         "6" {
-            Write-Host "`nSend at least 15 USD via Apple Cash to:" -ForegroundColor Cyan
+            Write-Host "`nSend at least 50 USD via Apple Cash to:" -ForegroundColor Cyan
             Write-Host "awestomates@proton.me" -ForegroundColor Yellow
             Write-Host "Thank you for supporting my caffeine addiction!`n" -ForegroundColor Cyan
             Write-Host "Press any key to continue..."
